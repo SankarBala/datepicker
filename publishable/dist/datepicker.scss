@@ -1,0 +1,217 @@
+$border-color: #ddd;
+$selectable-background-color: #ffffff;
+$primary-color: purple;
+$selected-background-color: rgb(81, 51, 252);
+$hover-background-color: rgb(26, 2, 112);
+$selected-color: white;
+
+.sb_datepicker {
+    user-select: none;
+    position: relative;
+    margin: 0.5em 0 1em;
+
+    &__calendar-container {
+        position: absolute;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 1;
+        min-width: 300px;
+        margin-top: 6px;
+        box-sizing: border-box;
+        height: auto;
+        border: 1px dashed rgb(52, 3, 129);
+        position: absolute;
+
+    }
+
+    &__bottom_line {
+        display: flex;
+        justify-content: space-between;
+        vertical-align: middle;
+    }
+
+    &__today {
+        cursor: pointer;
+        text-transform: uppercase;
+        color: purple;
+        background-color: $selectable-background-color;
+        display: inline-block;
+        text-align: center;
+        user-select: none;
+        border: 0px solid transparent;
+        padding: 10px 15px;
+        font-size: 1rem;
+        line-height: 1;
+        border-radius: .25rem;
+        margin: 10px 0px 0px 0px;
+
+        &:hover {
+            background-color: $selected-background-color;
+            color: #ffffff;
+        }
+    }
+
+
+    &__navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+
+        &-prev {
+            cursor: pointer;
+
+            svg {
+                display: block;
+                width: 30px;
+                height: 30px;
+                transform: rotate(90deg);
+            }
+        }
+
+        &-next {
+            cursor: pointer;
+
+            svg {
+                display: block;
+                width: 30px;
+                height: 30px;
+                transform: rotate(-90deg);
+            }
+        }
+
+    }
+
+    &__input-container {
+        position: relative;
+        display: inline-block;
+        z-index: 0;
+        width: 100%;
+
+
+        .calendar-icon {
+            cursor: pointer;
+            fill: $hover-background-color;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            height: 1em;
+            transform: translateY(-50%);
+        }
+    }
+
+    &__body {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    &__header {
+        th {
+            width: auto;
+            border-bottom: 1px solid maroon;
+            color: maroon;
+            font-size: 0.9em;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0;
+            height: 2.5em;
+            cursor: default;
+        }
+    }
+
+    &__day {
+        width: 14.2857142857%;
+        box-sizing: border-box;
+        background: $selectable-background-color;
+        color: $primary-color;
+        font-size: 0.85em;
+        text-align: center;
+        vertical-align: middle;
+        padding: 0px;
+        border-collapse: collapse;
+        cursor: pointer;
+        height: 2.5em;
+        width: 2.5em;
+        transition: background-color 0.05s ease;
+        border-radius: 0%;
+
+        &.off-month {
+            opacity: 0.5;
+        }
+
+        &.today {
+            color: blue;
+        }
+
+        &:hover {
+            background-color: $selected-background-color;
+            color: $selected-color;
+        }
+
+        &.selected {
+            background-color: $selected-background-color;
+            color: $selected-color;
+        }
+
+    }
+
+    &__month-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 2.5em);
+        margin-top: 45px;
+        grid-gap: 10px;
+    }
+
+    &__year-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 2.5em);
+        grid-gap: 5px;
+    }
+
+    &__year,
+    &__month {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        font-size: 0.875em;
+        border: 1px solid $border-color;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: $selectable-background-color;
+        color: $primary-color;
+
+        &:hover {
+            background-color: $selected-background-color;
+            color: $selected-color;
+        }
+
+        &.selected {
+            background-color: $hover-background-color;
+            color: $selected-color;
+        }
+    }
+
+    button {
+        background-color: $selectable-background-color;
+        color: $primary-color;
+        border: 1px solid purple;
+        border-radius: 5px;
+        height: 2.5em;
+        width: 80px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $selected-background-color;
+            color: $selected-color
+        }
+
+        &.changeMonth {
+            width: 100px;
+        }
+    }
+}
